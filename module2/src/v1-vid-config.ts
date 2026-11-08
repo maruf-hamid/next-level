@@ -13,7 +13,7 @@ const userRole : Role = "admin";
 
 // object union
 type Admin = {id : number, role : "admin", previlige : string[]}
-type Member = {id : number, role : "member", plans : []}
+type Member = {id : number, role : "member", plans : string[]}
 type user = Admin | Member;
 
 const user1 : user = {id : 12123, role : "admin", previlige : []}
