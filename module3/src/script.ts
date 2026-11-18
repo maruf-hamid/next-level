@@ -1,1 +1,1 @@
-import "./v2-encaptulation.js"
+import "./inheritance.js"
