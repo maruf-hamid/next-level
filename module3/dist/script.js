@@ -1,1 +1,1 @@
-import "./polymorphism.js";
+import "./minidom.js";
