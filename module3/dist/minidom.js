@@ -28,10 +28,25 @@ class Button extends UIElement {
         return `<button id="${this.id}">${this.label}<button/>`;
     }
 }
+class Form extends UIElement {
+    children = [];
+    appnedChildren(child) {
+        this.children.push(child);
+    }
+    render() {
+        const html = this.children.map(child => child.render()).join("\n  ");
+        return `<form id="${this.id}">${html}<form/>`;
+    }
+}
+const formElement = new Form("login-form");
 const emailInput = new Input("email", "email", "Enter your email: ");
 const passwordInput = new Input("pass", "password", "Enter your password: ");
 const submitButton = new Button("submit-btn", "Submit");
-console.log(emailInput.render());
-console.log(passwordInput.render());
-console.log(submitButton.render());
+formElement.appnedChildren(emailInput);
+formElement.appnedChildren(passwordInput);
+formElement.appnedChildren(submitButton);
+const rootElement = document.getElementById("root");
+if (rootElement) {
+    rootElement.innerHTML = formElement.render();
+}
 export {};
